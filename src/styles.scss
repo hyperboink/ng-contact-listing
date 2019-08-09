@@ -1,1 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Segoe UI, sans-serif;
+    font-size: 13px;
+    color: #555;
+}
+
+.container{
+    width: 980px;
+    margin: 0 auto;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.form-row{
+    display: flex;
+}
+
+.form-input-wrap{
+    position: relative;
+    flex: 1;
+    margin: 0 3px 0 0;
+    &.error{
+        input{
+            border: solid #ff7878 1px;
+        }
+    }
+}
+
+.form-input{
+    width: 100%;
+    margin: 0 6px 10px 0px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    height: 30px;
+    border: solid 1px #ddd;
+    outline: none;
+    &[type="date"]{
+        -webkit-appearance: none;
+        &::-webkit-inner-spin-button{
+            display: none;
+            -webkit-appearance: none;
+        }
+    }
+    &.error{
+        border: solid #ff7878 1px;
+    }
+}
+
+.button-wrapper{
+    width: 99%;
+    display: flex;
+    button{
+        flex: 10;
+        border: 0;
+        background: #83b997;
+        color: #fff;
+        height: 30px;
+        cursor: pointer;
+        outline: none;
+        &:nth-child(2){
+            flex: 1;
+            background: #ff7878;
+        }
+    }
+   
+}
+
+.form-error-wrapper{
+    position: absolute;
+    top: -4px;
+    right: 3px;
+    .form-input-error{
+        position: static;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 0 0 3px;
+    }
+}
+
+.form-input-error{
+    &.label{
+        @extend .form-error-wrapper;
+        background: #ff7878;
+        color: #fff;
+        font-size: 9px;
+        padding: 1px 2px;
+    }
+}
+
+.text-success{
+    color: green;
+}

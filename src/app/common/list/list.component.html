@@ -1,0 +1,29 @@
+<div class="list">
+    <div class="list-row">
+        <div class="list-data name">Name</div>
+        <div class="list-data phone">Phone</div>
+        <div class="list-data email">Email</div>
+        <div class="list-data age">Age</div>
+        <div class="list-data dob">Date of Birth</div>
+        <div class="list-data action" *ngIf="enableAction">Action</div>
+    </div>
+    <div class="list-row" *ngFor="let contact of contacts">
+        <div class="list-data name">{{contact.firstname}} {{contact.lastname}}</div>
+        <div class="list-data phone">{{contact.phone}}</div>
+        <div class="list-data email">{{contact.email}}</div>
+        <div class="list-data age">{{contact.age}}</div>
+        <div class="list-data dob">{{contact.dob | date: 'MM/dd/yyyy'}}</div>
+        <div class="list-data action" *ngIf="enableAction">
+            <i class="fa fa-pencil-square-o edit" aria-hidden="true" (click)="this.contactService.edit(contact)"></i>
+            <span class="separator">|</span>
+            <i class="fa fa-times remove" (click)="this.contactService.delete(contact.key)"aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+
+<div class="no-items" *ngIf="!isLoading && contacts.length <= 0">No items.</div>
+<div class="loading" *ngIf="isLoading">...loading</div>
+
+
+
+

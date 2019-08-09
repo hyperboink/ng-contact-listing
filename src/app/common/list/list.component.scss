@@ -1,0 +1,47 @@
+.list{
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+    .list-row{
+        display: table-row;
+        .list-data{
+             display: table-cell;
+             word-break: break-word;
+             border: solid #ddd 1px;
+             width: 100px;
+             padding: 5px 10px;
+             &.age{
+                width: 30px;
+             }
+             &.dob{
+                width: 65px;
+             }
+             &.action{
+                width: 34px;
+             }
+             .edit{
+                color: #83b997;
+                cursor: pointer;
+             }
+             .remove{
+                color: #ff7878;
+                cursor: pointer;
+             }
+             .separator{
+                margin: 0 5px;
+             }
+        }
+    }
+}
+
+.no-items{
+    text-align: center;
+    padding: 5px 0;
+    border: solid #ddd 1px;
+    border-top: none;
+}
+
+.loading{
+    @extend .no-items;
+}

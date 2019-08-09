@@ -1,0 +1,68 @@
+<div class="container home-con">
+    <div class="con left">
+        <p>Please fill up contact here.</p>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <input type="hidden" formControlName="key">
+            <div class="form-row">
+                <div class="form-input-wrap">
+                    <input type="text" formControlName="firstname" placeholder="Firstname" class="form-input" [ngClass]="{'error': hasSubmitted && form.controls.firstname.errors}">
+                    <div class="form-input-error label" *ngIf="hasSubmitted && form.controls.firstname.errors">required</div>
+                </div>
+                <div class="form-input-wrap">
+                    <input type="text" formControlName="lastname" class="form-input" placeholder="Lastname" [ngClass]="{'error': hasSubmitted && form.controls.lastname.errors}">
+                    <div class="form-input-error label" *ngIf="hasSubmitted && form.controls.lastname.errors">required</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-input-wrap">
+                    <input type="text" formControlName="phone" class="form-input" placeholder="Phone" [ngClass]="{'error': hasSubmitted && form.controls.phone.errors}">
+                    <div class="form-error-wrapper" *ngIf="hasSubmitted && form.controls.phone.errors">
+                        <div class="form-input-error label" *ngIf="form.controls.phone.errors.hasOwnProperty('required')">required</div>
+                        <div class="form-input-error label" *ngIf="form.controls.phone.errors.hasOwnProperty('minlength')">minimum 7 characters</div>
+                        <div class="form-input-error label" *ngIf="form.controls.phone.errors.hasOwnProperty('pattern')">number only</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-row">
+                <div class="form-input-wrap" [ngClass]="{'error': hasSubmitted && form.controls.age.errors}">
+                    <input type="text" formControlName="age" class="form-input" placeholder="Age">
+                    <div class="form-error-wrap" *ngIf="hasSubmitted && form.controls.age.errors">
+                        <div class="form-input-error label" *ngIf="form.controls.age.errors.hasOwnProperty('required')">required</div>
+                        <div class="form-input-error label" *ngIf="form.controls.age.errors.hasOwnProperty('pattern')">number only</div>
+                    </div>
+                </div>
+                
+                <div class="form-input-wrap" [ngClass]="{'error': hasSubmitted && form.controls.dob.errors}">
+                    <input type="date" formControlName="dob" class="form-input" placeholder="Date of birth">
+                    <div class="form-input-error label" *ngIf="hasSubmitted && form.controls.dob.errors">required</div>
+                </div>
+            </div>
+                
+            <div class="form-row">
+                <div class="form-input-wrap" [ngClass]="{'error': hasSubmitted && form.controls.email.errors}">
+                    <input type="email" formControlName="email" class="form-input" placeholder="Email">
+                    <div class="form-error-wrap" *ngIf="hasSubmitted && form.controls.email.errors">
+                        <div class="form-input-error label" *ngIf="form.controls.email.errors.hasOwnProperty('required')">required</div>
+                        <div class="form-input-error label" *ngIf="form.controls.email.errors.hasOwnProperty('email')">invalid email</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <button class="submit">SUBMIT</button>
+                <button class="submit" (click)="reset()" *ngIf="form.get('key').value">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            
+
+        </form>
+
+    </div>
+
+    <div class="con right">
+        <p>List of all contacts</p>
+        <app-contact-list [enableAction]="true"></app-contact-list>
+    </div>
+</div>
