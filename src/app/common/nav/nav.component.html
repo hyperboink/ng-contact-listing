@@ -3,5 +3,6 @@
         <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
             true}">Home</a></li>
         <li><a routerLink="/contacts" routerLinkActive="active">Contacts</a></li>
+        <li *ngIf="this._authService.isLoggedIn()"><a class="logout" (click)="logoutUser()">Logout</a></li>
     </ul>
 </nav>

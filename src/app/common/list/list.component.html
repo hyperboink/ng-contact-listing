@@ -14,9 +14,9 @@
         <div class="list-data age">{{contact.age}}</div>
         <div class="list-data dob">{{contact.dob | date: 'MM/dd/yyyy'}}</div>
         <div class="list-data action" *ngIf="enableAction">
-            <i class="fa fa-pencil-square-o edit" aria-hidden="true" (click)="this.contactService.edit(contact)"></i>
+            <i class="fa fa-pencil-square-o edit" aria-hidden="true" (click)="this._contactService.edit(contact)"></i>
             <span class="separator">|</span>
-            <i class="fa fa-times remove" (click)="this.contactService.delete(contact.key)"aria-hidden="true"></i>
+            <i class="fa fa-times remove" (click)="this._contactService.delete(contact.key)"aria-hidden="true"></i>
         </div>
     </div>
 </div>

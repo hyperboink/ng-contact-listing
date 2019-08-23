@@ -75,6 +75,16 @@ body{
    
 }
 
+.google-btn{
+    width: 100%;
+    padding: 8px 0;
+    border: 0;
+    margin: 5px 0 0 0;
+    background: #5896fd;
+    color: #fff;
+    cursor: pointer;
+}
+
 .form-error-wrapper{
     position: absolute;
     top: -4px;
@@ -99,4 +109,8 @@ body{
 
 .text-success{
     color: green;
+}
+
+.text-error{
+    color: #ff7878;
 }

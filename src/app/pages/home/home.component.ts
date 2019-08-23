@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
+import { FormValidationService } from '../../services/form-validation.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,9 @@ export class HomeComponent implements OnInit {
   contacts = [];
   hasSubmitted: boolean = false;
   
-  form = this.contactService.form;
+  form = this.validate.form;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private validate: FormValidationService) { }
 
   ngOnInit() { }
 
@@ -21,10 +22,9 @@ export class HomeComponent implements OnInit {
 
     this.hasSubmitted = true;
 
-    if(this.contactService.form.valid){
+    if(this.form.valid){
       this.contactService[this.form.get('key').value ? 'update' : 'add'](this.form.value);
-      this.form.reset();
-      this.hasSubmitted = false;
+      this.reset();
     }
 
   }

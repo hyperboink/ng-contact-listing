@@ -12,6 +12,12 @@ nav{
                 &.active{
                     color: #83b997;
                 }
+                &.logout{
+                    cursor: pointer;
+                }
+                &:hover{
+                    @extend .active;
+                }
             }
         }
     }

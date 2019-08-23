@@ -1,5 +1,6 @@
 <div class="container home-con">
     <div class="con left">
+        
         <p>Please fill up contact here.</p>
         <form [formGroup]="form" (ngSubmit)="submit()">
             <input type="hidden" formControlName="key">
@@ -63,6 +64,6 @@
 
     <div class="con right">
         <p>List of all contacts</p>
-        <app-contact-list [enableAction]="true"></app-contact-list>
+        <app-list [enableAction]="true"></app-list>
     </div>
 </div>

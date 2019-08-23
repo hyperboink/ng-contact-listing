@@ -3,7 +3,7 @@ import { ContactService } from '../../services/contact.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-contact-list',
+  selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
@@ -13,6 +13,7 @@ export class ListComponent implements OnInit, OnDestroy {
 
   contacts = [];
   isLoading = true;
+  _contactService = this.contactService;
   private contactSubscription: Subscription;
 
   constructor(private contactService: ContactService) { }
